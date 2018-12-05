@@ -11,7 +11,10 @@
  */
 
 function sayHello() {
-
+let canvas = document.getElementById("canvas1");
+let ctx = canvas.getContext("2d");
+ctx.font = "48px sans-serif";
+ctx.strokeText("Hello, World!",10,50);
 }
 
 /*
@@ -37,10 +40,33 @@ function sayHello() {
  *       it impossible to draw the rectangle within the bounds of the canvas
  */
 
+
 function drawRectangle() {
-
+let canvas = document.getElementById("canvas2");
+let ctx = canvas.getContext("2d");
+let height = prompt("Enter a height between 1 and 128");
+let width = prompt("Enter a width between 1 and 1024");
+let x = prompt("Enter an x coordinate between 5 and 250");
+let y = prompt("Enter a height between 5 and 250")
+if (height < 1) {
+  alert("Your height is too small");
 }
-
+if (width < 1) {
+  alert("Your width is too small");
+}
+if (x < 5) {
+  alert("Your x value is too small");
+}
+if (y < 5) {
+  alert("Your y value is too small");
+}
+if (height > 128 || width > 1024 || x > 250 || y > 250) {
+  alert("Your rectangle is too large, it won't fit in the canvas")
+}
+else {
+  ctx.strokeRect(height, width, x, y);
+}
+}
 /*
  * Color. 3 points.
  *
