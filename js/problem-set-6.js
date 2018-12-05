@@ -44,10 +44,10 @@ ctx.strokeText("Hello, World!",10,50);
 function drawRectangle() {
 let canvas = document.getElementById("canvas2");
 let ctx = canvas.getContext("2d");
-let height = prompt("Enter a height between 1 and 128");
-let width = prompt("Enter a width between 1 and 1024");
-let x = prompt("Enter an x coordinate between 5 and 250");
-let y = prompt("Enter a height between 5 and 250")
+let height = prompt("Height: ");
+let width = prompt("Width: ");
+let x = prompt("X: ");
+let y = prompt("Y: ")
 if (height < 1) {
   alert("Your height is too small");
 }
@@ -60,8 +60,11 @@ if (x < 5) {
 if (y < 5) {
   alert("Your y value is too small");
 }
-if (height > 128 || width > 1024 || x > 250 || y > 250) {
+if (height > 512 || width > 1024 || x > 250 || y > 250) {
   alert("Your rectangle is too large, it won't fit in the canvas")
+}
+if (isNaN(height) || isNaN(width) || isNaN(x) || isNaN(y)) {
+  alert("One or more of your values is not a number")
 }
 else {
   ctx.strokeRect(height, width, x, y);
@@ -93,7 +96,37 @@ else {
  */
 
 function drawColoredRectangle() {
+let color = prompt("Enter a valid color");
+let canvas = document.getElementById("canvas3")
+let ctx = canvas.getContext("2d");
+let rectColor = ""
+if (color = "black") {
+  rectColor = "black";
+}
+if (color = "blue") {
+  rectColor = "blue";
+}
+if (color = "green") {
+  rectColor = "green";
+}
+if (color = "orange") {
+  rectColor = "orange";
+}
+if (color = "purple") {
+  rectColor = "purple";
+}
+if (color = "red") {
+  rectColor = "red";
+}
+if (color = "yellow") {
+  rectColor = "yellow";
+}
+else {
+  alert("That color is not supported")
+}
 
+ctx.fillStyle = rectColor;
+ctx.fillRect = (50, 100, 10, 10);
 }
 
 /*
