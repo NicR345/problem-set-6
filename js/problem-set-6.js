@@ -97,36 +97,52 @@ else {
 
 function drawColoredRectangle() {
 let color = prompt("Enter a valid color");
-let canvas = document.getElementById("canvas3")
-let ctx = canvas.getContext("2d");
-let rectColor = ""
-if (color = "black") {
-  rectColor = "black";
+if (color == "black") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "black";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "blue") {
-  rectColor = "blue";
+if (color == "blue") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "blue";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "green") {
-  rectColor = "green";
+if (color == "green") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "green";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "orange") {
-  rectColor = "orange";
+if (color == "orange") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "orange";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "purple") {
-  rectColor = "purple";
+if (color == "purple") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "purple";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "red") {
-  rectColor = "red";
+if (color == "red") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle ="red";
+  ctx.fillRect(10, 10, 100, 50);
 }
-if (color = "yellow") {
-  rectColor = "yellow";
+if (color == "yellow") {
+  let canvas = document.getElementById("canvas3");
+  let ctx = canvas.getContext("2d");
+  ctx.fillStyle = "yellow";
+  ctx.fillRect(10, 10, 100, 50);
 }
-else {
+else if (color !="black" && color !="blue" && color !="green" && color !="orange" && color !="purple" && color !="red" && color !="yellow") {
   alert("That color is not supported")
 }
 
-ctx.fillStyle = rectColor;
-ctx.fillRect = (50, 100, 10, 10);
 }
 
 /*
