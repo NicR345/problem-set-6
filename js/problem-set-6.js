@@ -175,7 +175,9 @@ else if (color !="black" && color !="blue" && color !="green" && color !="orange
  */
 
 function drawTriangle() {
-
+  let canvas = document.getElementById("canvas4");
+  let ctx = canvas.getContext("2d");
+  let triangle= triangle(100, 100, 100, 100, 100, 100)
 }
 
 /*
