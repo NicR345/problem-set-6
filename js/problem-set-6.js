@@ -177,7 +177,37 @@ else if (color !="black" && color !="blue" && color !="green" && color !="orange
 function drawTriangle() {
   let canvas = document.getElementById("canvas4");
   let ctx = canvas.getContext("2d");
-  let triangle= triangle(100, 100, 100, 100, 100, 100)
+  let position1 = 10;
+  let position2 = 10;
+  let a;
+  let b;
+  let c;
+  while(true) {
+    a = Number(prompt("Side 1: "));
+    b = Number(prompt("Side 2: "));
+    c = Number(prompt("Side 3: "));
+    if((a**2)+(b**2) == (c**2) && a>0 && b>0 && c>0 && Number.isInteger(a) && Number.isInteger(b) && Number.isInteger(c)) {
+      break;
+    }
+    else {
+      alert("That is not a valid right Triangle")
+    }
+  }
+  ctx.beginPath();
+  ctx.moveTo(position1, position2);
+  ctx.lineTo(position1, position2 + a);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(position1, position2 + a);
+  ctx.lineTo(position1 + b, position2 + a);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(position1, position2);
+  ctx.lineTo(position1 + b, position2 + a);
+  ctx.stroke();
+
 }
 
 /*
