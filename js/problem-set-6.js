@@ -230,7 +230,39 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
-
+  let canvas = document.getElementById("canvas5");
+  let ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas5.width, canvas5.height);
+    let radius = Number(prompt("Radius: "));
+    let radius2;
+    let radius3;
+    let x = 10;
+    let y = 10;
+    drawing =false;
+    if(radius >= 1 && radius <= canvas5.width && radius <= canvas5.height && Number.isInteger(radius)){
+      drawing = true;
+    }
+    else{
+      alert("Invalid Radius")
+    }
+  radius2 = radius*.1
+  radius3 = radius*.7
+  ctx.beginPath();
+  ctx.arc(radius + 10, radius + 10, radius, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(radius + 10 - radius/3, radius + 10 - radius/4, radius2,0, Math.PI*2);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(radius + 10 + radius/3, radius + 10 - radius/4, radius2, 0, Math.PI*2);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.beginPath();
+  ctx.arc(radius + 10, radius + 10, radius3, 0, Math.PI);
+  ctx.stroke();
+  ctx.closePath();
 }
 
 /*
@@ -252,7 +284,36 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
-
+  let canvas = document.getElementById("canvas6")
+  let ctx = canvas.getContext("2d");
+     ctx.clearRect(0,0,1024,760);
+     let outside;
+     let inside;
+     do {
+       outside = Number(prompt("Outside Radius:"));
+     } while (isNaN(outside));
+     do {
+       inside = Number(prompt("Inside Radius:"));
+     } while (isNaN(inside));
+     let degrees = 0;
+     if (inside > outside){
+       alert("Inside radius is too large");
+     } else if (outside<2){
+       alert("Outside radius is too small");
+     } else if (inside<1){
+       alert("Inside radius is too small");
+     } else {
+       ctx.beginPath();
+       ctx.moveTo(125,125-outside);
+       for (let i=0; i<=5; i++) {
+         ctx.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*outside)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*outside)));
+         degrees +=36;
+         ctx.lineTo(125+Math.round((Math.cos(Math.PI*(degrees-90)/180)*inside)), 125+Math.round((Math.sin(Math.PI*(degrees-90)/180)*inside)));
+         degrees +=36;
+       }
+       ctx.stroke();
+       ctx.closePath();
+     }
 }
 
 /*
@@ -271,7 +332,29 @@ function drawStar() {
  */
 
 function drawStopSign() {
-
+  let canvas = document.getElementById("canvas7")
+  ctx = canvas.getContext("2d");
+   ctx.clearRect(0, 0, canvas7.height, canvas7.width)
+   let length = 80;
+   let input = Number((80/Math.sqrt(2)).toFixed(0));
+   let x = 70;
+   let y = 10;
+   ctx.beginPath();
+   ctx.moveTo(x,y);
+   ctx.lineTo(x+length,y);
+   ctx.lineTo(x+length+input,y+input);
+   ctx.lineTo(x+length+input,y+length+input);
+   ctx.lineTo(x+length,y+length+input+input);
+   ctx.lineTo(x,y+length+input+input);
+   ctx.lineTo(x-input,y+length+input);
+   ctx.lineTo(x-input,y+input);
+   ctx.lineTo(x,y);
+   ctx.fillStyle="red";
+   ctx.fill();
+   ctx.closePath();
+   ctx.fillStyle="white";
+   ctx.font="65px sans-serif";
+   ctx.fillText("STOP", 22, 133);
 }
 
 /*
@@ -293,7 +376,23 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
-
+  let canvas = document.getElementById('canvas8')
+  ctx = canvas.getContext("2d")
+    let sideLength=Number(prompt("Length: "));
+    let x = 10;
+    let y = canvas8.height-10;
+    let i = 0;
+    line = 1;
+    while(i < 5){
+      for(let val = 0+line; val <= 5; val ++){
+        ctx.strokeRect(x, y - sideLength, sideLength, sideLength);
+        x += sideLength;
+      }
+    x = 10 + (sideLength / 2) * line;
+    y -= sideLength;
+      line++;
+      i++;
+    }
 }
 
 /*
@@ -326,5 +425,57 @@ function drawPyramid() {
  */
 
 function drawHouse() {
-
+  let canvas = document.getElementById("canvas9")
+   ctx= canvas.getContext("2d");
+    let color = prompt("House Color: ");
+    let door = prompt("Door Color: ");
+    if ((color == "blue" || color == "brown"|| color == "green" || color == "orange" || color == "purple" || color == "red" || color == "yellow") && (door == "blue" || door == "brown"|| door == "green" || door == "orange" || door == "purple" || door == "red" || door == "yellow")){
+      ctx.fillStyle="black";
+      ctx.fillRect(150,300,724,450);
+      ctx.fillStyle=color;
+      ctx.fillRect(151,301,722,448);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(150,300);
+      ctx.lineTo(510,10);
+      ctx.lineTo(860,300);
+      ctx.lineTo(150,300);
+      ctx.fillStyle="black";
+      ctx.fill();
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.moveTo(150,300);
+      ctx.lineTo(510,12);
+      ctx.lineTo(870,300);
+      ctx.lineTo(150,300);
+      ctx.fillStyle="gray";
+      ctx.fill();
+      ctx.closePath();
+      ctx.fillStyle="black";
+      ctx.fillRect(260,620,80,80);
+      ctx.fillRect(260,400,80,80);
+      ctx.fillRect(684,620,80,80);
+      ctx.fillRect(684,400,80,80);
+      ctx.fillStyle="lightblue";
+      ctx.fillRect(261,620,80,80);
+      ctx.fillRect(261,400,80,80);
+      ctx.fillRect(685,620,80,80);
+      ctx.fillRect(685,400,80,80);
+      ctx.fillStyle="black"
+      ctx.fillRect(462,590,100,160);
+      ctx.fillStyle=door;
+      ctx.fillRect(462,590,100,160);
+      ctx.beginPath();
+      ctx.arc(545,670,8,0,Math.PI*2,true);
+      ctx.fillStyle="black";
+      ctx.fill();
+      ctx.closePath();
+      ctx.beginPath();
+      ctx.arc(545,670,7,0,Math.PI*2,true);
+      ctx.fillStyle="yellow";
+      ctx.fill();
+      ctx.closePath();
+    } else {
+      alert("Color not supported");
+    }
 }
